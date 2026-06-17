@@ -4,8 +4,9 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
 
-import com.controle.chamados.Enum.Prioridade;
-import com.controle.chamados.Enum.StatusChamado;
+import com.controle.chamados.DTO.ChamadoDTO;
+import com.controle.chamados.Enum.PrioridadeEnum;
+import com.controle.chamados.Enum.StatusChamadoEnum;
 
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
@@ -17,9 +18,15 @@ public class Chamado {
     Long id;
     String titulo;
     String descricao;
-    Prioridade prioridade;
-    StatusChamado statusChamado;
+    PrioridadeEnum prioridade;
+    StatusChamadoEnum statusChamado;
     LocalDateTime dataAbertura;
     @ManyToOne
     Responsavel responsavel;
+
+    public Chamado(ChamadoDTO dto){
+        this.titulo = dto.getTitulo();
+        this.descricao = dto.getDescricao();
+        this.prioridade = dto.getPrioridade();
+    }
 }

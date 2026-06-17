@@ -1,6 +1,6 @@
 package com.controle.chamados.Enum;
 
-public enum Prioridade {
+public enum PrioridadeEnum {
     BAIXA, 
     MEDIA,
     ALTA
